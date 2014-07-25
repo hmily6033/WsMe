@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#2b2b2b">
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+   		android:layout_height="40dp"
+   		android:background="@drawable/left_nav_title_bg">
+    		
+        	<TextView
+        	android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="10dp"
+    		android:text="@string/left_nav_title"
+    		android:layout_centerVertical="true"
+    		style="@style/NavigationTextStyle"/>       	    
+        
+    </RelativeLayout>
+                
+    <LinearLayout 
+         android:orientation="vertical" 
+         android:layout_width="fill_parent" 
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp">
+         
+         <RadioGroup 
+			android:id="@+id/nav_radiogroup"
+			android:gravity="center_vertical"
+			android:orientation="vertical"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+			<RadioButton 
+			    android:id="@+id/rb_blog" 
+			    android:text="@string/left_nav_weibo_button_text" 
+			    android:drawableLeft="@drawable/icon_blog"
+			    android:layout_marginTop="10dp"
+			    android:textColor="@color/gainsboro"
+			  	style="@style/NavRadioStyle"/>
+			<RadioButton 
+			    android:id="@+id/rb_toutiao" 
+			    android:checked="true" 
+			    android:text="@string/left_nav_ttnews_button_text" 
+			    android:drawableLeft="@drawable/icon_toutiao"
+			    android:layout_marginTop="10dp"
+			    android:textColor="@color/gainsboro"
+			    style="@style/NavRadioStyle"/>"
+		
+		 	<RadioButton 
+			    android:id="@+id/rb_yule" 
+			    android:text="娱乐" 
+			    android:drawableLeft="@drawable/icon_yule"
+			    android:layout_marginTop="10dp"
+			    android:textColor="@color/gainsboro"
+			  	style="@style/NavRadioStyle"/>
+			
+		 	<RadioButton 
+			    android:id="@+id/rb_tech" 
+			    android:text="科技" 
+			    android:drawableLeft="@drawable/icon_tech"
+			    android:layout_marginTop="10dp"
+			    android:textColor="@color/gainsboro"
+			  	style="@style/NavRadioStyle"/>
+		 	
+			</RadioGroup>	
+			
+          	<!-- 添加内容 -->
+          	<ImageButton
+          	    android:id="@+id/ib_add_content"
+          	    android:layout_width="match_parent"
+    			android:layout_height="45dp"
+  				android:layout_marginTop="10dp"
+    			android:background="@drawable/selector_add_content">        	    
+          	</ImageButton>       
+	   		
+			
+      </LinearLayout>    
+</LinearLayout>

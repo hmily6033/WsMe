@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#2b2b2b"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+     
+    <RelativeLayout
+        android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+   		android:layout_marginTop="10dp"
+   		android:layout_marginBottom="10dp">
+    		
+        	<ImageView   
+        	android:id="@+id/iv_head"
+        	android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="10dp"
+    		android:background="@drawable/rn_weibo_img"/>
+        	
+        	<LinearLayout 
+        	android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_toRightOf="@id/iv_head"
+    		android:layout_marginLeft="10dp"
+    		android:layout_centerVertical="true"
+    		android:orientation="vertical">
+    		 
+        	    <TextView
+        	    android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:text="登录账号"
+    			style="@style/NavigationTextStyle">      	        
+        	    </TextView>
+        	    
+        	    <TextView
+        	    android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_marginTop="5dp"
+    			android:text="和好友一起分享新闻"
+    			android:textSize="14sp"
+    			android:textColor="#a9a9a9">      	        
+        	    </TextView>
+        	    
+        	</LinearLayout>	    
+        
+    </RelativeLayout>   
+    
+    
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content">
+            
+            <!-- 推送 -->       
+	   		<LinearLayout 
+	        style="@style/leba_bg_single_layout">                
+		    
+				    <ImageView
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+				    android:layout_centerVertical="true"
+				    android:background="@drawable/ic_mine_push"/>
+			
+			    	<TextView
+			        android:id="@+id/tv_content"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dp"
+			        android:layout_centerVertical="true"
+			        android:text="我的推送"
+			        style="@style/NavigationTextStyle"/>  
+		  	</LinearLayout>
+		  		 
+	   		<!-- 收藏 -->       
+	   		<LinearLayout 
+	        style="@style/leba_bg_single_layout"
+	        android:layout_marginTop="0dp">                
+		    
+				    <ImageView
+				    android:id="@+id/imageView"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+				    android:layout_centerVertical="true"
+				    android:background="@drawable/ic_mine_favr"/>
+			
+			
+			    	<TextView
+			        android:id="@+id/tv_content"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dp"
+			        android:layout_centerVertical="true"
+			        android:text="我的收藏"
+			        style="@style/NavigationTextStyle"/>  
+		  	</LinearLayout>
+		  	
+		  		 
+	   		<!-- 深圳 -->       
+	   		<LinearLayout 
+	        style="@style/leba_bg_single_layout">                
+		    
+				    <ImageView
+				    android:id="@+id/imageView"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+				    android:layout_centerVertical="true"
+				    android:background="@drawable/tqt_zhong_dayu"/>
+			
+			
+			    	<TextView
+			        android:id="@+id/tv_content"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dp"
+			        android:layout_centerVertical="true"
+			        android:text="深圳"
+			        style="@style/NavigationTextStyle"/>  
+		   </LinearLayout>
+		  		
+		  
+	   		<!-- 夜间模式 -->       
+	   		<LinearLayout 
+	        style="@style/leba_bg_single_layout">                
+		    
+				    <ImageView
+				    android:id="@+id/imageView"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+				    android:layout_centerVertical="true"
+				    android:background="@drawable/ic_nightmode"/>
+			
+			
+			    	<TextView
+			        android:id="@+id/tv_content"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dp"
+			        android:layout_centerVertical="true"
+			        android:text="夜间模式"
+			        style="@style/NavigationTextStyle"/>  
+	  		</LinearLayout>
+	  		 
+	   		<!-- 设置-->       
+	   		<LinearLayout 
+	        style="@style/leba_bg_single_layout">                
+		    
+				    <ImageView
+				    android:id="@+id/imageView"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+				    android:layout_centerVertical="true"
+				    android:background="@drawable/ic_mine_setting"/>
+			
+			
+			    	<TextView
+			        android:id="@+id/tv_content"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dp"
+			        android:layout_centerVertical="true"
+			        android:text="设置"
+			        style="@style/NavigationTextStyle"/>  
+		  	</LinearLayout>		   		
+	</LinearLayout>    
+
+</LinearLayout>

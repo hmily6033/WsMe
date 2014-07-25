@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >  
+    <ImageView  
+        android:id="@+id/blog_title_right_pic"  
+        android:layout_width="wrap_content"  
+        android:layout_height="80dp"  
+        android:layout_alignParentLeft="true"  
+        android:layout_centerVertical="true"  
+        android:layout_margin="1dp"
+        android:src="@drawable/icon_tech"/>  
+  <LinearLayout  
+        android:layout_height="fill_parent"  
+        android:layout_width="wrap_content"  
+        android:layout_marginLeft="20dp"  
+        android:layout_toRightOf="@id/blog_title_right_pic"  
+        android:layout_centerVertical="true"  
+        android:orientation="vertical" >  
+  
+        <TextView  
+            android:id="@+id/blog_up_text"  
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"  
+            android:layout_gravity="center"  
+            android:textColor="#191970"  
+            android:textSize="30sp" />  
+  
+        <TextView  
+            android:id="@+id/blog_down_text"  
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"  
+            android:layout_gravity="center"  
+            android:textColor="#800080"   
+            android:textSize="30sp"/>  
+    </LinearLayout>  
+      
+      <ImageView  
+        android:id="@+id/blog_title_left_pic"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_alignParentRight="true"  
+        android:layout_margin="15dp"  
+        android:layout_centerVertical="true"  
+        android:src="@drawable/icon_tech"/>  
+
+</RelativeLayout>
