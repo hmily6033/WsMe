@@ -30,7 +30,7 @@ import com.sina.weibo.sdk.demo.openapi.WBOpenAPIActivity;
  * @author SINA
  * @since 2013-09-29
  */
-public class WBDemoMainActivity extends Activity {
+public class WBDemoMainActivity extends Activity  {
 
     /**
      * @see {@link Activity#onCreate}
