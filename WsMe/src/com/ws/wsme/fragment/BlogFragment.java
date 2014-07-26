@@ -1,9 +1,13 @@
 package com.ws.wsme.fragment;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
@@ -17,12 +21,15 @@ import com.ws.wsme.common.Constants;
 import com.ws.wsme.http.common.C;
 import com.ws.wsme.http.http.AnsynHttpRequest;
 import com.ws.wsme.http.http.ObserverCallBack;
+import com.ws.wsme.listview.XListView;
+import com.ws.wsme.listview.XListView.IXListViewListener;
 import com.ws.wsme.wsadapter.BlogFragmentAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -30,12 +37,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class BlogFragment extends ListFragment {
+public class BlogFragment extends Fragment implements IXListViewListener{
 
 	private Oauth2AccessToken mAccessToken;
 	/** 注意：SsoHandler 仅当 SDK 支持 SSO 时有效 */
@@ -45,6 +53,11 @@ public class BlogFragment extends ListFragment {
 	private boolean isInit = false;
 	private ListView list;
 	private BlogFragmentAdapter adapter = null;
+	private XListView mListView;
+	//private Handler mHandler;
+	private int start = 0;
+	private static int refreshCnt = 0;
+	private JSONArray items = new JSONArray();
 	// 异步加载图片
 	private AsyncTaskImageDownload asyncTaskImageDownload = new AsyncTaskImageDownload();
 
@@ -71,6 +84,8 @@ public class BlogFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mListView = (XListView) getActivity().findViewById(R.id.xListView);
+		mListView.setPullLoadEnable(true);
 		WsMainActivity wsMainActivity = (WsMainActivity) getActivity();
 
 		if (!wsMainActivity.getwbKey().isEmpty()) {
@@ -299,5 +314,46 @@ public class BlogFragment extends ListFragment {
 					Toast.LENGTH_LONG).show();
 		}
 	}
+
+	
+	private void geneItems() {
+		for (int i = 0; i != 20; ++i) {
+			items.add("refresh cnt " + (++start));
+		}
+	}
+
+	private void onLoad() {
+		mListView.stopRefresh();
+		mListView.stopLoadMore();
+		mListView.setRefreshTime("1233456689");
+	}
+	
+	@Override
+	public void onRefresh() {
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				start = ++refreshCnt;
+				geneItems();
+				// mAdapter.notifyDataSetChanged();
+				mAdapter = new ArrayAdapter<String>(XListViewActivity.this, R.layout.list_item, items);
+				mListView.setAdapter(adapter);
+				onLoad();
+			}
+		}, 2000);
+	}
+
+	@Override
+	public void onLoadMore() {
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				geneItems();
+				adapter.notifyDataSetChanged();
+				onLoad();
+			}
+		}, 2000);
+	}
+
 
 }

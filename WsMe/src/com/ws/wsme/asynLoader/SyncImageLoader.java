@@ -1,4 +1,4 @@
-package com.ws.wsme.AsynLoader;
+package com.ws.wsme.asynLoader;
 
 import java.io.DataInputStream;
 import java.io.File;
