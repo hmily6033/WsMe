@@ -30,6 +30,7 @@ import com.sina.weibo.sdk.api.share.IWeiboDownloadListener;
 import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
 import com.ws.wsme.R;
+import com.ws.wsme.common.Constants;
 
 /**
  * 该类是分享功能的入口。

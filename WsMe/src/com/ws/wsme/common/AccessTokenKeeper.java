@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ws.wsme;
+package com.ws.wsme.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;

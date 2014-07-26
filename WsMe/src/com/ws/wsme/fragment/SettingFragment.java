@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ws.wsme.CommonLog;
-import com.ws.wsme.LogFactory;
 import com.ws.wsme.R;
+import com.ws.wsme.common.CommonLog;
+import com.ws.wsme.common.LogFactory;
 
 public class SettingFragment extends Fragment{
 	

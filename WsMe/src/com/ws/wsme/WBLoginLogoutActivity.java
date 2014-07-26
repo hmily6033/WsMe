@@ -40,6 +40,8 @@ import com.sina.weibo.sdk.openapi.LogoutAPI;
 import com.sina.weibo.sdk.widget.LoginButton;
 import com.sina.weibo.sdk.widget.LoginoutButton;
 import com.ws.wsme.R;
+import com.ws.wsme.common.AccessTokenKeeper;
+import com.ws.wsme.common.Constants;
 
 /**
  * 该类主要演示了如何使用登录/注销控件。

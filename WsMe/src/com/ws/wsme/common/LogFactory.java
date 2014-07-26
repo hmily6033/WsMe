@@ -1,4 +1,4 @@
-package com.ws.wsme;
+package com.ws.wsme.common;
 
 
 public class LogFactory {

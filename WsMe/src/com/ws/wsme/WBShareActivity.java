@@ -47,6 +47,7 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboShareException;
 import com.sina.weibo.sdk.utils.Utility;
 import com.ws.wsme.R;
+import com.ws.wsme.common.Constants;
 
 /**
  * 该类演示了第三方应用如何通过微博客户端分享文字、图片、视频、音乐等。

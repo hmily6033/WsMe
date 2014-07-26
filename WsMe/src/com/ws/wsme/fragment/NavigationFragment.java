@@ -1,11 +1,11 @@
 package com.ws.wsme.fragment;
 
-import com.ws.wsme.CommonLog;
-import com.ws.wsme.FragmentControlCenter;
-import com.ws.wsme.FragmentModel;
-import com.ws.wsme.LogFactory;
 import com.ws.wsme.WsMainActivity;
 import com.ws.wsme.R;
+import com.ws.wsme.common.CommonLog;
+import com.ws.wsme.common.FragmentControlCenter;
+import com.ws.wsme.common.FragmentModel;
+import com.ws.wsme.common.LogFactory;
 
 
 

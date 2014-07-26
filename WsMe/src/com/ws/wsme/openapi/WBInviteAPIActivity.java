@@ -106,7 +106,7 @@ public class WBInviteAPIActivity extends Activity implements OnClickListener {
         //String uid = "2785593564";
         
         // 获取 Token
-        Oauth2AccessToken accessToken = com.ws.wsme.AccessTokenKeeper.readAccessToken(WBInviteAPIActivity.this);
+        Oauth2AccessToken accessToken = com.ws.wsme.common.AccessTokenKeeper.readAccessToken(WBInviteAPIActivity.this);
         if (accessToken != null && accessToken.isSessionValid()) {
             // 调用 OpenAPI 接口发送邀请
             new InviteAPI(accessToken).sendInvite(uid, jsonObject, mInviteRequestListener);

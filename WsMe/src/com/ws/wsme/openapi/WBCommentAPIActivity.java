@@ -33,8 +33,8 @@ import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.CommentsAPI;
 import com.sina.weibo.sdk.openapi.models.CommentList;
 import com.sina.weibo.sdk.utils.LogUtil;
-import com.ws.wsme.AccessTokenKeeper;
 import com.ws.wsme.R;
+import com.ws.wsme.common.AccessTokenKeeper;
 
 /**
  * 该类主要演示了如何使用微博 OpenAPI 来获取以下内容：

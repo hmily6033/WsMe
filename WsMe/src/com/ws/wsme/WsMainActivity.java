@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.ws.wsme.common.FragmentControlCenter;
+import com.ws.wsme.common.FragmentModel;
 import com.ws.wsme.fragment.NavigationFragment;
 import com.ws.wsme.fragment.SettingFragment;
 

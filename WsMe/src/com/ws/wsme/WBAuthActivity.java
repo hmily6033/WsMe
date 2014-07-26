@@ -37,6 +37,8 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.ws.wsme.R;
+import com.ws.wsme.common.AccessTokenKeeper;
+import com.ws.wsme.common.Constants;
 import com.ws.wsme.http.common.C;
 import com.ws.wsme.http.http.AnsynHttpRequest;
 import com.ws.wsme.http.http.ObserverCallBack;

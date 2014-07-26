@@ -1,8 +1,10 @@
-package com.ws.wsme;
+package com.ws.wsme.common;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ws.wsme.R;
+import com.ws.wsme.R.string;
 import com.ws.wsme.fragment.BlogFragment;
 import com.ws.wsme.fragment.TechFragment;
 import com.ws.wsme.fragment.TouTiaoFragment;

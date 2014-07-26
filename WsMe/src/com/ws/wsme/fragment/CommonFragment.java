@@ -1,8 +1,8 @@
 package com.ws.wsme.fragment;
 
-import com.ws.wsme.CommonLog;
-import com.ws.wsme.LogFactory;
 import com.ws.wsme.R;
+import com.ws.wsme.common.CommonLog;
+import com.ws.wsme.common.LogFactory;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

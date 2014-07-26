@@ -34,8 +34,8 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.LogoutAPI;
-import com.ws.wsme.AccessTokenKeeper;
 import com.ws.wsme.R;
+import com.ws.wsme.common.AccessTokenKeeper;
 
 /**
  * 该类主要演示了如何使用 {@link LogoutAPI} 来注销登陆。

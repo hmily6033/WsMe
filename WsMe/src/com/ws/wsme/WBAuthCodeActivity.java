@@ -39,6 +39,7 @@ import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.UIUtils;
 import com.ws.wsme.R;
+import com.ws.wsme.common.Constants;
 
 /**
  * 该类主要演示如何使用 Code 手动进行授权。

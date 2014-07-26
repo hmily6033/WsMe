@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ws.wsme;
+package com.ws.wsme.common;
 
 /**
  * 该类定义了微博授权时所需要的参数。

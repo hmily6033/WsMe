@@ -6,7 +6,10 @@
  <ListView  
         android:id="@+id/android:list"  
         android:layout_width="fill_parent"  
-        android:layout_height="wrap_content"  
+        android:layout_height="wrap_content" 
+        android:scrollingCache="false"
+        android:divider="@null"
+        android:dividerHeight="10.0dip"
          />
     <Button
         android:id="@+id/obtain_token_via_sso"

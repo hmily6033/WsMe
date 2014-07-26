@@ -34,8 +34,8 @@ import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.sina.weibo.sdk.openapi.models.ErrorInfo;
 import com.sina.weibo.sdk.openapi.models.User;
 import com.sina.weibo.sdk.utils.LogUtil;
-import com.ws.wsme.AccessTokenKeeper;
 import com.ws.wsme.R;
+import com.ws.wsme.common.AccessTokenKeeper;
 
 /**
  * 该类主要演示了如何使用微博 OpenAPI 来获取以下内容：
