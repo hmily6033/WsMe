@@ -1,13 +1,8 @@
 package com.ws.wsme.fragment;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
@@ -30,14 +25,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -57,7 +50,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	//private Handler mHandler;
 	private int start = 0;
 	private static int refreshCnt = 0;
-	private JSONArray items = new JSONArray();
+//private JSONArray items = new JSONArray();
 	// 异步加载图片
 	private AsyncTaskImageDownload asyncTaskImageDownload = new AsyncTaskImageDownload();
 
@@ -68,7 +61,9 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 
 		Button btnAuthButton = (Button) getActivity().findViewById(
 				R.id.obtain_token_via_sso);
-
+		mListView = (XListView) getActivity().findViewById(R.id.xListView);
+		mListView.setPullLoadEnable(true);
+		mListView.setXListViewListener(this);
 		if (btnAuthButton == null)
 			return;
 		btnAuthButton.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +79,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mListView = (XListView) getActivity().findViewById(R.id.xListView);
-		mListView.setPullLoadEnable(true);
+		
 		WsMainActivity wsMainActivity = (WsMainActivity) getActivity();
 
 		if (!wsMainActivity.getwbKey().isEmpty()) {
@@ -95,7 +89,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	}
 
 	public void initList() {
-		list = (ListView) getActivity().findViewById(android.R.id.list);
+		list = (ListView) getActivity().findViewById(R.id.xListView);
 		list.setAdapter(adapter);
 		list.setOnScrollListener(new OnScrollListener() {
 
@@ -105,7 +99,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 				isInit = true;
 				switch (scrollState) {
 				case OnScrollListener.SCROLL_STATE_IDLE:// 滑动停止
-					mHandler.postDelayed(mRunnable, 2000); // 在Handler中执行子线程并延迟3s。
+					mHandler.postDelayed(mRunnable, 1000); // 在Handler中执行子线程并延迟3s。
 					break;
 
 				default:
@@ -192,7 +186,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 		String url = "https://api.weibo.com/2/statuses/home_timeline.json";
 		map.put("access_token", mAccessToken.getToken());
 		AnsynHttpRequest.requestByGet(getActivity(), url, callbackData,
-				C.http.http_area, map, false, true);
+				C.http.http_area, map, false, false);
 	}
 
 	/**
@@ -228,16 +222,17 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 1:
-				try {
-					new JSONObject(msg.obj.toString());
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try {
+//					
+//					items=new JSONObject(msg.obj.toString()).getJSONArray("statuses");
+//				} catch (JSONException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				adapter = new BlogFragmentAdapter(getActivity(),
 						msg.obj.toString(), isInit, asyncTaskImageDownload);
 				initList();
-				Toast.makeText(getActivity(), "测试数据 数据编号：" + msg.what,
+				Toast.makeText(getActivity(), "刷新成功！",
 						Toast.LENGTH_SHORT).show();
 				break;
 			case 2:
@@ -262,6 +257,40 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 		};
 	};
 
+	
+	private void onLoad() {
+		mListView.stopRefresh();
+		mListView.stopLoadMore();
+		mListView.setRefreshTime("1233456689");
+	}
+	
+	@Override
+	public void onRefresh() {
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				start = ++refreshCnt;
+				//geneItems();
+				WsMainActivity wsMainActivity = (WsMainActivity) getActivity();
+				if (!wsMainActivity.getwbKey().isEmpty()) {
+					getExistwbJson();
+				}
+				onLoad();
+			}
+		}, 2000);
+	}
+
+	@Override
+	public void onLoadMore() {
+		mHandler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				adapter.notifyDataSetChanged();
+				onLoad();
+			}
+		}, 2000);
+	}
+	
 	/**
 	 * 微博认证授权回调类。 1. SSO 授权时，需要在 {@link #onActivityResult} 中调用
 	 * {@link SsoHandler#authorizeCallBack} 后， 该回调才会被执行。 2. 非 SSO
@@ -316,44 +345,6 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	}
 
 	
-	private void geneItems() {
-		for (int i = 0; i != 20; ++i) {
-			items.add("refresh cnt " + (++start));
-		}
-	}
-
-	private void onLoad() {
-		mListView.stopRefresh();
-		mListView.stopLoadMore();
-		mListView.setRefreshTime("1233456689");
-	}
-	
-	@Override
-	public void onRefresh() {
-		mHandler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				start = ++refreshCnt;
-				geneItems();
-				// mAdapter.notifyDataSetChanged();
-				mAdapter = new ArrayAdapter<String>(XListViewActivity.this, R.layout.list_item, items);
-				mListView.setAdapter(adapter);
-				onLoad();
-			}
-		}, 2000);
-	}
-
-	@Override
-	public void onLoadMore() {
-		mHandler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				geneItems();
-				adapter.notifyDataSetChanged();
-				onLoad();
-			}
-		}, 2000);
-	}
 
 
 }

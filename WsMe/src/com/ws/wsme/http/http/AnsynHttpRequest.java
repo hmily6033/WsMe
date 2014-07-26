@@ -93,7 +93,7 @@ public class AnsynHttpRequest {
 		}
 		String requestUrl = buffer.toString();
 		requestUrl = requestUrl.substring(0,requestUrl.length()-1);
-		Log.i("httpurl", requestUrl);
+		//Log.i("httpurl", requestUrl);
 
 		String[] data = null;
 		if(isCache){ //如果是缓存 取数据库缓存中数据

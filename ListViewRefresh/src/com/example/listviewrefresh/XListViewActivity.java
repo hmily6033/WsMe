@@ -26,8 +26,6 @@ public class XListViewActivity extends Activity implements IXListViewListener {
 		mListView.setPullLoadEnable(true);
 		mAdapter = new ArrayAdapter<String>(this, R.layout.list_item, items);
 		mListView.setAdapter(mAdapter);
-//		mListView.setPullLoadEnable(false);
-//		mListView.setPullRefreshEnable(false);
 		mListView.setXListViewListener(this);
 		mHandler = new Handler();
 	}
