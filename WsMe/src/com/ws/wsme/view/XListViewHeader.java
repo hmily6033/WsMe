@@ -2,7 +2,7 @@
  * @file XListViewHeader.java
  * @description XListView's header
  */
-package com.ws.wsme.listview;
+package com.ws.wsme.view;
 
 import com.ws.wsme.R;
 

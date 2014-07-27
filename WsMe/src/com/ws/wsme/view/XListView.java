@@ -3,7 +3,7 @@
  * @description An ListView support (a) Pull down to refresh, (b) Pull up to load more.
  * 		Implement IXListViewListener, and see stopRefresh() / stopLoadMore().
  */
-package com.ws.wsme.listview;
+package com.ws.wsme.view;
 
 import com.ws.wsme.R;
 

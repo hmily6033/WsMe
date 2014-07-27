@@ -2,7 +2,7 @@
  * @file XFooterView.java
  * @description XListView's footer
  */
-package com.ws.wsme.listview;
+package com.ws.wsme.view;
 
 import com.ws.wsme.R;
 

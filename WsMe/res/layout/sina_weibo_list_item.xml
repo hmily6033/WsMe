@@ -10,10 +10,8 @@
         android:id="@+id/ll_weibo_list_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:background="@drawable/sina_weibo_list_item_downboder" 
-        >
-
+        android:orientation="vertical">
+<!--android:background="@drawable/sina_weibo_list_item_downboder"   -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +106,6 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="6dp"
                             android:singleLine="true"
-                            android:text="1小时前"
                             android:textColor="#F18D00"
                             android:textSize="10.0sp" />
                     </LinearLayout>
@@ -125,8 +122,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:autoLink="web"
-                            android:linksClickable="false"
-                            android:text="这是用生命在奋斗啊"
+                            android:linksClickable="true"
                             android:textColor="#081008"
                             android:textSize="14.0sp" />
 
@@ -178,7 +174,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:linksClickable="false"
-                            android:text="新浪微博"
                             android:textColor="#101810"
                             android:textSize="10.0sp" />
                     </LinearLayout>
@@ -186,36 +181,40 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+       <LinearLayout
             android:id="@+id/button_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" android:background="#f6f6f6">
 
-            <Button
-                android:id="@+id/btn_retweet"
+            <com.ws.wsme.view.DrawableCenterTextView
+                android:id="@+id/tv_retweet"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@null"
-                android:text="转发:283" />
+                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:textColor="#081008"
+                android:textSize="14.0sp"
+                />
+            
+            <com.ws.wsme.view.DrawableCenterTextView
+                android:id="@+id/tv_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:textColor="#081008"
+                android:textSize="14.0sp"/>
+                        <com.ws.wsme.view.DrawableCenterTextView
+                android:id="@+id/tv_good"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:textColor="#081008"
+                android:textSize="14.0sp"/>
 
-            <Button
-                android:id="@+id/btn_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:text="评论：65" />
-
-            <Button
-                android:id="@+id/btn_good"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:text="点赞:350" />
         </LinearLayout>
     </LinearLayout>
 

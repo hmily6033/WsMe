@@ -76,10 +76,10 @@ public class BlogFragmentAdapter extends BaseAdapter {
             holder.tv_created_at = (TextView) convertView.findViewById(R.id.tv_created_at); 
             holder.tv_text = (TextView) convertView.findViewById(R.id.tv_text); 
             holder.tv_source = (TextView) convertView.findViewById(R.id.tv_source); 
-            holder.btn_retweet = (Button) convertView.findViewById(R.id.btn_retweet);    
+            holder.tv_retweet = (TextView) convertView.findViewById(R.id.tv_retweet);    
   
-            holder.btn_comment = (Button) convertView.findViewById(R.id.btn_comment);    
-            holder.btn_good = (Button) convertView.findViewById(R.id.btn_good);    
+            holder.tv_comment = (TextView) convertView.findViewById(R.id.tv_comment);    
+            holder.tv_good = (TextView) convertView.findViewById(R.id.tv_good);    
             convertView.setTag(holder);    
         } else {   
             holder = (ViewHolder) convertView.getTag();    
@@ -128,9 +128,9 @@ public class BlogFragmentAdapter extends BaseAdapter {
             
             holder.tv_source.setText(jObject.getString("source").toString());
             
-            holder.btn_retweet.setText("转发："+jObject.getString("reposts_count").toString());
-            holder.btn_comment.setText("评论："+jObject.getString("comments_count").toString());
-            holder.btn_good.setText("点赞："+jObject.getString("attitudes_count").toString());
+            holder.tv_retweet.setText(jObject.getString("reposts_count").toString());
+            holder.tv_comment.setText(jObject.getString("comments_count").toString());
+            holder.tv_good.setText(jObject.getString("attitudes_count").toString());
             
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -183,17 +183,17 @@ public class BlogFragmentAdapter extends BaseAdapter {
 	    /**
 		 * 转发
 		 */
-	    public Button btn_retweet;
+	    public TextView tv_retweet;
 	    
 	    /**
 		 * 评论
 		 */
-	    public Button btn_comment;
+	    public TextView tv_comment;
 	    
 	    /**
 		 * 赞
 		 */
-	    public Button btn_good; 
+	    public TextView tv_good; 
 	}  
 
 }
