@@ -44,36 +44,17 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	public Map<String, String> map;
 	// 判断是否是初始化
 	private boolean isInit = false;
-	private ListView list;
 	private BlogFragmentAdapter adapter = null;
 	private XListView mListView;
-	//private Handler mHandler;
-	private int start = 0;
-	private static int refreshCnt = 0;
-//private JSONArray items = new JSONArray();
 	// 异步加载图片
 	private AsyncTaskImageDownload asyncTaskImageDownload = new AsyncTaskImageDownload();
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		// 授权按钮
-
-		Button btnAuthButton = (Button) getActivity().findViewById(
-				R.id.obtain_token_via_sso);
 		mListView = (XListView) getActivity().findViewById(R.id.xListView);
 		mListView.setPullLoadEnable(true);
 		mListView.setXListViewListener(this);
-		if (btnAuthButton == null)
-			return;
-		btnAuthButton.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// 授权
-				AuthWBUser();
-			}
-		});
 	}
 
 	@Override
@@ -89,9 +70,8 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	}
 
 	public void initList() {
-		list = (ListView) getActivity().findViewById(R.id.xListView);
-		list.setAdapter(adapter);
-		list.setOnScrollListener(new OnScrollListener() {
+		mListView.setAdapter(adapter);
+		mListView.setOnScrollListener(new OnScrollListener() {
 
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -118,8 +98,8 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 			  @Override
 			  public void handleMessage(Message msg) {
 				  super.handleMessage(msg);
-				  for (int i = 0; i < list.getChildCount(); i++) {
-						View viewitem = list.getChildAt(i);
+				  for (int i = 0; i < mListView.getChildCount(); i++) {
+						View viewitem = mListView.getChildAt(i);
 						ImageView iv_profile_image = (ImageView) viewitem
 								.findViewById(R.id.iv_profile_image);
 						if (iv_profile_image != null) {
@@ -146,13 +126,18 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		WsMainActivity wsMainActivity = (WsMainActivity) getActivity();
-		View v = null;
-		if (!wsMainActivity.getwbKey().isEmpty()) {
-			v = inflater.inflate(R.layout.fragment_blog_list, container, false);
-		} else {
-			v = inflater.inflate(R.layout.fragment_blog_list_view, container,
-					false);
+		View v =inflater.inflate(R.layout.fragment_blog_list, container, false);
+		//开始认证
+		if (wsMainActivity.getwbKey().isEmpty()) {
+			// 授权
+			AuthWBUser();
 		}
+//		if (!wsMainActivity.getwbKey().isEmpty()) {
+//			v = 
+//		} else {
+//			v = inflater.inflate(R.layout.fragment_blog_list_view, container,
+//					false);
+//		}
 		return v;
 	}
 
@@ -222,13 +207,6 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 1:
-//				try {
-//					
-//					items=new JSONObject(msg.obj.toString()).getJSONArray("statuses");
-//				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
 				adapter = new BlogFragmentAdapter(getActivity(),
 						msg.obj.toString(), isInit, asyncTaskImageDownload);
 				initList();
@@ -269,8 +247,7 @@ public class BlogFragment extends Fragment implements IXListViewListener{
 		mHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				start = ++refreshCnt;
-				//geneItems();
+				//start = ++refreshCnt;
 				WsMainActivity wsMainActivity = (WsMainActivity) getActivity();
 				if (!wsMainActivity.getwbKey().isEmpty()) {
 					getExistwbJson();
