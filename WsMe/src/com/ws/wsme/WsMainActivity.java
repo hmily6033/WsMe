@@ -23,12 +23,8 @@ import com.ws.wsme.fragment.SettingFragment;
  * @author LCL
  */
 public class WsMainActivity extends WsBaseActivity implements OnClickListener{
-
-	//private static final CommonLog log = LogFactory.createLog();
-	
 	private int mTitle;
 	private Fragment mContent;
-	
 	private ImageView mLeftIcon;
 	private ImageView mRightIcon;
 	private TextView mTitleTextView;
@@ -38,7 +34,6 @@ public class WsMainActivity extends WsBaseActivity implements OnClickListener{
 	private FragmentModel fragmentModel ;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		mControlCenter = FragmentControlCenter.getInstance(this);
@@ -111,8 +106,6 @@ public class WsMainActivity extends WsBaseActivity implements OnClickListener{
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		//super.onActivityResult(requestCode, resultCode, data);
 		fragmentModel.mFragment.onActivityResult(requestCode, resultCode, data);
         
 	}
