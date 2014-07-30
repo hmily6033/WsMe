@@ -123,14 +123,18 @@ public class BlogFragmentAdapter extends BaseAdapter {
         		holder.tv_created_at.setText(Math.abs(minutes)+"分钟");
         	
         	//时间end
-        	
+        	//微博正文内容
             holder.tv_text.setText(jObject.getString("text").toString()); 
             
-            holder.tv_source.setText(jObject.getString("source").toString());
             
-            holder.tv_retweet.setText(jObject.getString("reposts_count").toString());
-            holder.tv_comment.setText(jObject.getString("comments_count").toString());
-            holder.tv_good.setText(jObject.getString("attitudes_count").toString());
+            String s_sourceString=jObject.getString("source").toString();
+            String s_leftString = s_sourceString.substring(0,s_sourceString.indexOf("</a>"));
+            String s_content = s_leftString.substring(s_leftString.indexOf(">") + 1);
+            holder.tv_source.setText("来自:"+s_content);
+            
+            holder.tv_retweet.setText(" "+jObject.getString("reposts_count").toString());
+            holder.tv_comment.setText(" "+jObject.getString("comments_count").toString());
+            holder.tv_good.setText(" "+jObject.getString("attitudes_count").toString());
             
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

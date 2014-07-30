@@ -3,6 +3,22 @@ package com.ws.wsme.fragment;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
@@ -19,22 +35,6 @@ import com.ws.wsme.http.http.ObserverCallBack;
 import com.ws.wsme.view.XListView;
 import com.ws.wsme.view.XListView.IXListViewListener;
 import com.ws.wsme.wsadapter.BlogFragmentAdapter;
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 public class BlogFragment extends Fragment implements IXListViewListener{
 

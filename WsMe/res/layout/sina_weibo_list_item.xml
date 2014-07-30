@@ -186,14 +186,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal" android:background="#f6f6f6">
+            android:orientation="horizontal">
 
             <com.ws.wsme.view.DrawableCenterTextView
                 android:id="@+id/tv_retweet"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:drawableLeft="@drawable/statusdetail_icon_retweet"
                 android:textColor="#081008"
                 android:textSize="14.0sp"
                 />
@@ -203,15 +203,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:drawableLeft="@drawable/statusdetail_icon_comment"
                 android:textColor="#081008"
                 android:textSize="14.0sp"/>
-                        <com.ws.wsme.view.DrawableCenterTextView
+            <com.ws.wsme.view.DrawableCenterTextView
                 android:id="@+id/tv_good"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/toolbar_forward_icon_nor_meizu"
+                android:drawableLeft="@drawable/statusdetail_icon_like"
                 android:textColor="#081008"
                 android:textSize="14.0sp"/>
 
