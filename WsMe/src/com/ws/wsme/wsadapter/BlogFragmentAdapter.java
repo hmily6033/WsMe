@@ -77,7 +77,6 @@ public class BlogFragmentAdapter extends BaseAdapter {
             holder.tv_text = (TextView) convertView.findViewById(R.id.tv_text); 
             holder.tv_source = (TextView) convertView.findViewById(R.id.tv_source); 
             holder.tv_retweet = (TextView) convertView.findViewById(R.id.tv_retweet);    
-  
             holder.tv_comment = (TextView) convertView.findViewById(R.id.tv_comment);    
             holder.tv_good = (TextView) convertView.findViewById(R.id.tv_good);    
             convertView.setTag(holder);    
@@ -160,7 +159,7 @@ public class BlogFragmentAdapter extends BaseAdapter {
 			  mAsyncTaskImageDownload.setViewImage(holder.iv_profile_image,holder.iv_profile_image.getTag().toString());
 		  }
 		 };
- class ViewHolder {
+    class ViewHolder {
 		/**
 		 * 头像
 		 */
